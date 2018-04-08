@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<FindBugsFilter>
+
+  <!--  the following equality tests are part of the reference algorithms -->
+  <!--  which already know about limited precision of the double numbers -->
+  <Match>       
+    <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2" />
+  </Match>
+
+</FindBugsFilter>

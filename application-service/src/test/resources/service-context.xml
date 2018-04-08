@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:elasticsearch="http://www.pilato.fr/schema/elasticsearch"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.pilato.fr/schema/elasticsearch http://www.pilato.fr/schema/elasticsearch/elasticsearch-0.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+
+
+	<context:component-scan base-package="com.cordis.team" />
+
+	<!-- <beans:bean id="restUrl" class="java.net.URL"> <beans:constructor-arg 
+		index="0" value="${jbpm.rest.client.baseurl}" /> </beans:bean> <beans:bean 
+		id="restRemoteClient" class="com.cordis.team.jbpm.bridge.client.rest.impl.RestRemoteClientImpl"> 
+		<beans:property name="deploymentId" value="${jbpm.rest.client.deploymentid}"></beans:property> 
+		<beans:property name="instanceUrl" ref="restUrl"></beans:property> <beans:property 
+		name="userName" value="${jbpm.rest.client.username}"></beans:property> <beans:property 
+		name="password" value="${jbpm.rest.client.password}"></beans:property> </beans:bean> -->
+
+	<beans:bean id="memcachedClient"
+		class="net.spy.memcached.spring.MemcachedClientFactoryBean">
+		<beans:property name="servers" value="${cache.servers}" />
+		<beans:property name="protocol" value="${cache.protocol}" />
+		<beans:property name="transcoder">
+			<beans:bean class="net.spy.memcached.transcoders.SerializingTranscoder">
+				<beans:property name="compressionThreshold" value="${cache.compressionThreshold}" />
+			</beans:bean>
+		</beans:property>
+		<beans:property name="opTimeout" value="${cache.opTimeout}" />
+		<beans:property name="timeoutExceptionThreshold"
+			value="${cache.timeoutExceptionThreshold}" />
+		<beans:property name="hashAlg">
+			<beans:value type="net.spy.memcached.DefaultHashAlgorithm">${cache.hashAlg}</beans:value>
+		</beans:property>
+		<beans:property name="locatorType" value="${cache.locatorType}" />
+		<beans:property name="failureMode" value="${cache.failureMode}" />
+		<beans:property name="useNagleAlgorithm" value="${cache.useNagleAlgorithm}" />
+	</beans:bean>
+
+	<!-- <elasticsearch:transport-client id="esClient" cluster-nodes="localhost:9300" 
+		/> -->
+
+	<!-- <beans:bean id="esNode" class="fr.pilato.spring.elasticsearch.ElasticsearchNodeFactoryBean"> 
+		</beans:bean> -->
+
+	<!-- <beans:bean id="esClient" class="fr.pilato.spring.elasticsearch.ElasticsearchTransportClientFactoryBean" 
+		> <beans:property name="esNodes"> <beans:list> <beans:value>${search.servers.1}</beans:value> 
+		<beans:value>${search.servers.2}</beans:value> </beans:list> </beans:property> 
+		<beans:property name="properties" ref="esProperties" /> </beans:bean> <util:map 
+		id="esProperties"> <beans:entry key="cluster.name" value="${search.cluster.name}" 
+		/> </util:map> -->
+
+</beans:beans>

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DAO Bean Definition -->
+
+	<bean id="employeeDao" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.EmployeeDao</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.Employee</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	<bean id="employeeHasEmailDao" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.EmployeeHasEmailDao</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.EmployeeHasEmail</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+
+	<bean id="principalDao" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.PrincipalDao</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.Principal</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	<bean id="principalHasEmailDao" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.PrincipalHasEmailDao</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.PrincipalHasEmail</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="contactPointEmail" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.ContactPointEmailDao</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.ContactPointEmail</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="cfgRelationshipType" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.CfgRelationshipTypeDao</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.CfgRelationshipType</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="untaggedDocuments" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.UntaggedDocumentsDao</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.UntaggedDocuments</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+
+
+	<bean id="processInstanceUntaggedDocuments" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.ProcessInstanceUntaggedDocumentsDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.ProcessInstanceUntaggedDocuments
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="employeeUntaggedDocuments" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.EmployeeUntaggedDocumentsDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.EmployeeUntaggedDocuments
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="processInstance" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.ProcessInstanceDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.ProcessInstance
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="role" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.RoleDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.Role
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	<bean id="cfgDocumentClass" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.CfgDocumentClassDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.CfgDocumentClass
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	<bean id="cfgDocumentClassRole" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.CfgDocumentClassRoleDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.CfgDocumentClassRole
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+
+
+	<bean id="taggedDocuments" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.TaggedDocumentsDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.TaggedDocuments
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	<bean id="agentSponsored" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.AgentSponsoredDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.AgentSponsored
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="agentNonSponsored" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.AgentNonSponsoredDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.AgentNonSponsored
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="agentSponsoredHasTaggedDocumentPermissions" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.AgentSponsoredHasTaggedDocumentPermissionsDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.AgentSponsoredHasTaggedDocumentPermissions
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	<bean id="agentNonSponsoredHasTaggedDocumentPermissions" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.AgentNonSponsoredHasTaggedDocumentPermissionsDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.AgentNonSponsoredHasTaggedDocumentPermissions
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="principalHasTaggedDocumentPermissions" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.PrincipalHasTaggedDocumentPermissionsDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.PrincipalHasTaggedDocumentPermissions
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="customerCorporateTaggedDocumentPermissions" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.CustomerCorporateHasTaggedDocumentPermissionsDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.CustomerCorporateHasTaggedDocumentPermissions
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="customerIndividualHasTaggedDocumentPermissions" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.CustomerIndividualHasTaggedDocumentPermissionsDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.CustomerIndividualHasTaggedDocumentPermissions
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="customerCorporate" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.CustomerCorporateDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.CustomerCorporate
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="customerIndividual" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.CustomerIndividualDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.CustomerIndividual
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="processInstanceHasTaggedDocumentPermissions" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.ProcessInstanceHasTaggedDocumentPermissionsDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.ProcessInstanceHasTaggedDocumentPermissions
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="user" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.UserDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.User
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="message" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.MessageDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.Message
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="messageHashTag" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.MessageHashTagDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.MessageHashTag
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="messageThread" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.MessageThreadDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.MessageThread
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="systemEmail" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.SystemEmailDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.SystemEmail
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="systemEmailCc" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.SystemEmailCcDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.SystemEmailCc
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="systemEmailBcc" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.SystemEmailBccDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.SystemEmailBcc
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="cdrDao" parent="abstractDao">
+		<property name="proxyInterfaces">
+			<value>com.mehta.dao.CdrDao
+			</value>
+		</property>
+		<property name="target">
+			<bean parent="abstractDaoTarget">
+				<constructor-arg>
+					<value>com.mehta.model.Cdr
+					</value>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+
+</beans>

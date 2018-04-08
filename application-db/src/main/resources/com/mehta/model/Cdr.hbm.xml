@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<sql-query name="Cdr.findAllByDate">
+		<return-scalar column="cdruniqueid" type="java.lang.String" />
+		<return-scalar column="callerName" type="java.lang.String" />
+		<return-scalar column="callerNumber" type="java.lang.String" />
+		<return-scalar column="extnNumber" type="java.lang.String" />
+		<return-scalar column="duration" type="java.lang.Integer" />
+		<return-scalar column="reasonForCall" type="java.lang.String" />
+		<return-scalar column="remarks" type="java.lang.String" />
+		<return-scalar column="inOutFlag" type="java.lang.Integer" />
+		<return-scalar column="disposition" type="java.lang.String" />
+		<return-scalar column="audioFileName" type="java.lang.String" />
+		<return-scalar column="lastApp" type="java.lang.String" />
+		<return-scalar column="calldate" type="java.util.Date" />
+		<return-scalar column="empId" type="java.lang.Integer" />
+		<return-scalar column="empName" type="java.lang.String" />
+		<return-scalar column="userId" type="java.lang.Integer" />
+		<return-scalar column="entitytype" type="java.lang.String" />
+		<return-scalar column="relation" type="java.lang.String" />
+		<return-scalar column="entityname" type="java.lang.String" />
+		<return-scalar column="taggedinstance" type="java.lang.String" />
+		{ call test(:dateString) };
+	</sql-query>
+</hibernate-mapping> 

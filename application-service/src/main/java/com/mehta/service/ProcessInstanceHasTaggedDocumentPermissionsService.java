@@ -1,0 +1,18 @@
+package com.mehta.service;
+
+import java.util.List;
+
+import com.mehta.common.vo.ProcessInstanceHasTaggedDocumentPermissionsVo;
+
+public interface ProcessInstanceHasTaggedDocumentPermissionsService {
+
+	Integer processInstanceHasTaggedDocumentPermissionsCreate(
+			ProcessInstanceHasTaggedDocumentPermissionsVo processInstanceHasTaggedDocumentPermissionsVo, String userId);
+
+	void processInstanceHasTaggedDocumentPermissionsUpdate(
+			ProcessInstanceHasTaggedDocumentPermissionsVo processInstanceHasTaggedDocumentPermissionsVo, String userId);
+
+	ProcessInstanceHasTaggedDocumentPermissionsVo processInstanceHasTaggedDocumentPermissionsRead(Integer id);
+
+	List<ProcessInstanceHasTaggedDocumentPermissionsVo> processInstanceHasTaggedDocumentPermissionsList();
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="classpath:ehcache.xml" updateCheck="true"
+    monitoring="autodetect" dynamicConfig="true" name="eibpCache">
+ 
+    <diskStore path="java.io.tmpdir/eibp_cache" />
+ 
+    <defaultCache maxEntriesLocalHeap="10000" eternal="false"
+        timeToIdleSeconds="120" timeToLiveSeconds="120" diskSpoolBufferSizeMB="30"
+        maxEntriesLocalDisk="10000000" diskExpiryThreadIntervalSeconds="120"
+        memoryStoreEvictionPolicy="LRU" statistics="true">
+        <persistence strategy="localTempSwap" />
+    </defaultCache>
+    
+    
+     <cache name="currencyCache"
+        maxEntriesLocalHeap="50" eternal="false" timeToLiveSeconds="600">
+        <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="customerCorporate"
+        maxEntriesLocalHeap="50" eternal="false" timeToLiveSeconds="600">
+        <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="customerIndividual"
+        maxEntriesLocalHeap="50" eternal="false" timeToLiveSeconds="600">
+        <persistence strategy="localTempSwap" />
+    </cache>   AcActionFormCategory
+    
+    <cache name="acActionFormCategory"
+        maxEntriesLocalHeap="50" eternal="false" timeToLiveSeconds="600">
+        <persistence strategy="localTempSwap" />
+    </cache> 
+  
+   <cache name="acActionFormVariable"
+        maxEntriesLocalHeap="50" eternal="false" timeToLiveSeconds="600">
+        <persistence strategy="localTempSwap" />
+    </cache>
+   
+   
+</ehcache>

@@ -14,7 +14,6 @@ public class ResponseBuilder {
 	private boolean paggingEnabled;
 
 	public ResponseBuilder() {
-
 		response = new HashMap<>();
 	}
 

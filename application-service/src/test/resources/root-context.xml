@@ -7,9 +7,7 @@
 									http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 									http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
 	<context:component-scan base-package="com.cordis.team" />
-
 
 	<beans:bean id="configurer" class="com.cordis.team.common.utils.SystemConfigResolver">
 		<beans:property name="location" value="classpath:systemconfig.properties" />
@@ -29,7 +27,5 @@
 	<beans:import resource="hibernate-context.xml" />
 	<beans:import resource="dao-context.xml" />
 	<beans:import resource="service-context.xml" />
-
-
 
 </beans:beans>
